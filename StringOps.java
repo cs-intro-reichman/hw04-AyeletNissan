@@ -22,17 +22,43 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+        System.out.println(camelCase(" Intro to  coMPUter"));
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String help = "";
+        for(int i=0; i<string.length(); i++){
+            if(string.charAt(i)=='a' || string.charAt(i)=='A') help+='A'; 
+            else if(string.charAt(i)=='e' || string.charAt(i)=='E') help+='E'; 
+            else if(string.charAt(i)=='i' || string.charAt(i)=='I') help+='I'; 
+            else if(string.charAt(i)=='o' || string.charAt(i)=='O') help+='O'; 
+            else if(string.charAt(i)=='u' || string.charAt(i)=='U') help+='U'; 
+            else if(string.charAt(i)==' ') help+=' ';
+            else if (string.charAt(i)<=90 && string.charAt(i)>=65) help+=(char)(string.charAt(i)+32);
+            else help+=string.charAt(i);
+        }
+        return help;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String help = "";
+        boolean afterspace = false;
+        for(int i=0; i<string.length(); i++){ 
+            
+             if(string.charAt(i)==' ') afterspace=true;
+            else if(i==0){
+                if (string.charAt(i)<=90 && string.charAt(i)>=65) help+=string.charAt(i);
+                else help+=(char)(string.charAt(i)-32);
+            }
+            else if(afterspace==true && string.charAt(i)!=' '){
+                if (string.charAt(i)<=90 && string.charAt(i)>=65) help+=string.charAt(i);
+                else help+=(char)(string.charAt(i)-32);
+                afterspace=false;
+            }
+            else if (string.charAt(i)<=90 && string.charAt(i)>=65) help+=(char)(string.charAt(i)+32);
+            else help+=string.charAt(i);
+        }
+        return help;
     }
 
     public static int[] allIndexOf (String string, char chr) {
