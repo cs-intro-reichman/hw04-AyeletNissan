@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+        System.out.println(camelCase("Hello World"));
     }
 
     public static String capVowelsLowRest (String string) {
@@ -47,8 +47,8 @@ public class StringOps {
             
              if(string.charAt(i)==' ') afterspace=true;
             else if(i==0){
-                if (string.charAt(i)<=90 && string.charAt(i)>=65) help+=string.charAt(i);
-                else help+=(char)(string.charAt(i)-32);
+                if (string.charAt(i)<=90 && string.charAt(i)>=65) help+=(char)(string.charAt(i)+32) ;
+                else help+=string.charAt(i);
             }
             else if(afterspace==true && string.charAt(i)!=' '){
                 if (string.charAt(i)<=90 && string.charAt(i)>=65) help+=string.charAt(i);
